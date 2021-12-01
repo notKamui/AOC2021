@@ -14,9 +14,9 @@ infix fun <A, B, C> Pair<A, B>.to(third: C): Triple<A, B, C> = Triple(first, sec
 
 fun <T> List<T>.zipTriple(): List<Triple<T, T, T>> {
     val res = mutableListOf<Triple<T, T, T>>()
-    forEachIndexed { i, e ->
+    for (i in indices) {
         if (i + 2 < size) {
-            res += e to this[i + 1] to this[i + 2]
+            res += this[i] to this[i + 1] to this[i + 2]
         }
     }
     return res
