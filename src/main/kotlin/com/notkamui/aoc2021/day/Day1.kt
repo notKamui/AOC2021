@@ -18,14 +18,5 @@ fun part2(input: List<Int>) {
     println(countIncrease(windowsSums))
 }
 
-fun countIncrease(list: List<Int>): Int {
-    var prev: Int = list.first()
-    var count = 0
-    list.forEach {
-        if (it > prev) {
-            count++
-        }
-        prev = it
-    }
-    return count
-}
+fun countIncrease(list: List<Int>): Int =
+    list.zipWithNext().count { (a, b) -> a < b }
