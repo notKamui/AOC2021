@@ -1,7 +1,6 @@
 package com.notkamui.aoc2021.day
 
 import com.notkamui.aoc2021.util.readInput
-import com.notkamui.aoc2021.util.zipTriple
 
 fun main() {
     val input = readInput("day1.txt").mapNotNull(String::toIntOrNull)
@@ -14,7 +13,7 @@ fun part1(input: List<Int>) {
 }
 
 fun part2(input: List<Int>) {
-    val windowsSums = input.zipTriple().map { (a, b, c) -> a + b + c }
+    val windowsSums = input.windowed(3).map(List<Int>::sum)
     println(countIncrease(windowsSums))
 }
 
